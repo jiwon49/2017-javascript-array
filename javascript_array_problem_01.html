@@ -2,9 +2,20 @@
 <html>
 <head>
     <script type="text/javascript">
-        function calculate(arr) {
-          var result = 0;
-          // TODO : ì—¬ê¸°ì— ì—¬ëŸ¬ë¶„ì´ ì§ì ‘ ì½”ë”©ì„ í•´ì£¼ì„¸ìš”.       
+        function calculate(arr) {//201644068 ÃÖÁö¿ø
+
+          var result = arr[0]; //ÀÔ·Â¹Ş´Â ¹è¿­ Ã¹¹øÂ°°ªÀ¸·Î °á°ú ÃÊ±âÈ­
+
+          for(var i=0;i<arr.length;i++){
+	document.write(arr[i]+'<br>');
+              if(arr[i]=='+'){
+                result = result + arr[i+1]; //+°¡ ÀÔ·ÂµÇ¾úÀ» °æ¿ì
+              }else if(arr[i]=='-'){
+                result = result - arr[i+1]; //-°¡ ÀÔ·ÂµÇ¾úÀ» °æ¿ì
+              }else if(arr[i]=='*'){
+                result = result * arr[i+1]; //*°¡ ÀÔ·ÂµÇ¾úÀ» °æ¿ì
+              }
+            }
           return result;
         }
 

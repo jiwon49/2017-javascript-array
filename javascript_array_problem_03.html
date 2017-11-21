@@ -2,11 +2,37 @@
 <html>
 <head>
     <script type="text/javascript">
-        function minimum_cost(houses) {
-          var result = 0;
-          // TODO : ì—¬ê¸°ì— ì—¬ëŸ¬ë¶„ì´ ì§ì ‘ ì½”ë”©ì„ í•´ì£¼ì„¸ìš”.
-          return result;
-        }
+        function minimum_cost(houses) { //201644068 ÃÖÁö¿ø
+
+   var min=new Array;
+   var result=0;
+   
+   for(var n=0; n<houses.length; n++){ //¸ğµç ÁÖ¼®Àº case1À» ¿¹·Î ¼³¸í
+      var a=houses[n].toString(); //26,40,83À» ¹®ÀÚ¿­ Çü½ÄÀ¸·Î º¯¼ö a¿¡ ÀúÀå
+      var arrayList=a.split(","); // ','¸¦ ±âÁØÀ¸·Î ¹®ÀÚ¸¦ Àß¶ó¼­ ¹è¿­ arrayList¿¡ ÀúÀå
+      min[n]=arrayList[0];
+      document.write('******'+n+'¹øÂ° Áı'+'******'+'<br>');
+
+         for(var i=0;i<arrayList.length;i++){
+            var c=parseFloat(arrayList[i]); // ¹è¿­ arrayList ¼Ó ¹®ÀÚÇü ¼ıÀÚµéÀ» ¼ıÀÚÇüÀ¸·Î º¯È¯
+            var d=parseFloat(min[n]); //¹è¿­ min ¼Ó ¹®ÀÚÇü ¼ıÀÚµéÀ» ¼ıÀÚÇüÀ¸·Î º¯È¯
+
+            document.write(i+'»öÀ¸·Î Ä¥ÇÏ´Â °ª : '+arrayList[i]+'<br>');
+         
+            if(d>=c) min[n]=arrayList[i]; //°¢ Áıº° ÃÖ¼Ò Ä¥ °ªÀ» ±¸ÇÔ
+            
+            } //document.write('ÃÖ¼Ò°ª : '+min[n]);         
+
+   document.write('<br>');
+   }
+
+   for(var n=0; n<houses.length; n++) {
+         result = result+parseFloat(min[n]); //°¢ ÁıÀÇ ÃÖ¼Ò Ä¥ °ªÀ» ÇÕÇÑ °ªÀ» ±¸ÇÔ
+   }
+
+   document.write(houses.length+'ÁıÀÇ ÃÖ¼Ò°ª ÇÕ : '+result+'<br>'+'<br>');
+   return result;
+   }
         var test_case_01 = [[26, 40, 83], [49, 60, 57], [13, 89, 99]];
         var test_case_02 = [[1, 20, 30], [50, 5, 6], [9, 3, 7]];
         var test_case_03 = [[100, 1, 100], [999, 1, 999]];

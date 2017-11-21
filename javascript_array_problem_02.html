@@ -3,14 +3,25 @@
 <head>
     <script type="text/javascript">
         function check_string() {
-          // TODO : ì—¬ê¸°ì— ì—¬ëŸ¬ë¶„ì´ ì§ì ‘ ì½”ë”©ì„ í•´ì£¼ì„¸ìš”.          
-          return true;
+          //201644068 ÃÖÁö¿ø
+
+	var sentence = arguments[0]; //ÀÔ·Â¹ŞÀº ¹è¿­À» ¹®ÀÚ¿­¿¡ ÀúÀå
+	var left=0; // '(' °ıÈ£ÀÇ °¹¼ö
+	var right=0; //')' °ıÈ£ÀÇ °¹¼ö
+
+	for(var i=0; i<sentence.length; i++){//¹®ÀÚ¿­ ÇÏ³ªÇÏ³ª ÂÉ°³¼­ ºñ±³        
+          if(sentence.substr(i,1)=='(') left = left+1;
+		else right = right+1;
+		}
+
+	if(left!=right) return false; //'('°¹¼ö°¡ ')'°¹¼ö°¡ ´Ù¸£¸é false
+	else return true; //°°À¸¸é true
         }
 
         expect(check_string('(())())'), false);
         expect(check_string('(((()())()'), false);
         expect(check_string('(()())((()))'), true);
-        expect(check_string('((()()(()))(((())))()'), false);
+        expect(check_string('((()()(()))(((())))()'), false); 
         expect(check_string('()()()()(()()())()'), true);
         expect(check_string('(()((())()('), false);
 
@@ -19,7 +30,8 @@
                 console.log('pass');
             else
                 console.log('fail');
-        }
+	}
+
     </script>
 </head>
 <body>
